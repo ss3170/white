@@ -5,10 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>はじめての筋力トレーニング | あなたの体づくりをサポート</title>
 
-<!-- ============================================== -->
-<!-- ピクセルコード設置箇所①：ヘッダー（必要な場合） -->
-<!-- ここに共通で読み込むピクセルコードを貼り付けてください -->
-<!-- ============================================== -->
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for( var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script");n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+
+  ttq.load('D7JKNE3C77U9EB7RIN7G');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+<!-- TikTok Pixel Code End -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -793,23 +799,13 @@ footer {
 function openContactForm() {
 
   // ===================================================
-  // 🔥 ピクセルコード発火箇所 🔥
-  // ここに共有いただくピクセルコードを貼り付けてください
-  // ---------------------------------------------------
-  // 例（Meta Pixel）:
-  //   fbq('track', 'Lead');
-  //
-  // 例（Google広告コンバージョン）:
-  //   gtag('event', 'conversion', {'send_to': 'AW-XXXXX/XXXXX'});
-  //
-  // 例（X/Twitter Pixel）:
-  //   twq('event', 'tw-XXXXX-XXXXX', {});
-  //
-  // 例（TikTok Pixel）:
-  //   ttq.track('SubmitForm');
+  // 🔥 TikTok Pixel 発火：お問い合わせボタンクリック時
   // ===================================================
-
-  console.log('Pixel fired: CTA button clicked'); // 動作確認用（本番では削除推奨）
+  if (typeof ttq !== 'undefined') {
+    ttq.track('ClickButton', {
+      content_name: 'Contact Form CTA'
+    });
+  }
 
   // モーダル表示
   document.getElementById('contactModal').classList.add('active');
@@ -840,10 +836,14 @@ function submitForm(event) {
   event.preventDefault();
 
   // ===================================================
-  // ※ フォーム送信時にもピクセル発火させたい場合は
-  //    ここにもピクセルコードを追記してください
-  // 例: fbq('track', 'CompleteRegistration');
+  // 🔥 TikTok Pixel 発火：フォーム送信完了時
+  // ※ リード獲得をより正確に計測したい場合に有効
   // ===================================================
+  if (typeof ttq !== 'undefined') {
+    ttq.track('SubmitForm', {
+      content_name: 'Contact Form Submitted'
+    });
+  }
 
   alert('お問い合わせありがとうございます。\n内容を確認のうえ、担当者よりご連絡いたします。');
   document.getElementById('contactForm').reset();
